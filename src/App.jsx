@@ -1,12 +1,12 @@
 import React from "react";
 import classes from "./components/layout/MainNavigation.module.css";
-import { Link, Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 
 function App() {
   return (
     <div>
       <header className={classes.header}>
-        <h1 className={classes.logo}>Great Quotes</h1>
+        <p className={classes.logo}>Great Quotes</p>
         <nav className={classes.nav}>
           <ul>
             <li>All Quotes</li>
