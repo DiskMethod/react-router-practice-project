@@ -1,6 +1,6 @@
 import { useRef, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { usePrompt } from "../prompt.blocker";
+import { usePrompt } from "../hooks/prompt.blocker";
 
 import Card from "../UI/Card";
 import LoadingSpinner from "../UI/LoadingSpinner";
