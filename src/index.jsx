@@ -12,6 +12,7 @@ import NotFound from "./components/pages/NotFound";
 
 // Components
 import Comments from "./components/comments/Comments";
+import CommentButton from "./components/comments/CommentButton";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -22,6 +23,7 @@ root.render(
           <Route index element={<Quotes />} />
           <Route path="quotes" element={<Quotes />} />
           <Route path="/quotes/:id" element={<QuoteDetail />}>
+            <Route index element={<CommentButton />} />
             <Route path="comments" element={<Comments />} />
           </Route>
           <Route path="add-quote" element={<QuoteAdd />} />
