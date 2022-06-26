@@ -1,5 +1,4 @@
 import React from "react";
-import classes from "./components/layout/MainNavigation.module.css";
 import { Outlet } from "react-router-dom";
 import Layout from "./components/layout/Layout";
 

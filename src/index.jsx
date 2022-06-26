@@ -8,6 +8,7 @@ import App from "./App";
 import Quotes from "./components/pages/Quotes";
 import QuoteDetail from "./components/pages/QuoteDetail";
 import QuoteAdd from "./components/pages/QuoteAdd";
+import NotFound from "./components/pages/NotFound";
 
 // Components
 import Comments from "./components/comments/Comments";
@@ -24,7 +25,7 @@ root.render(
             <Route path="comments" element={<Comments />} />
           </Route>
           <Route path="add-quote" element={<QuoteAdd />} />
-          <Route path="*" element={<p>Something went wrong</p>} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </BrowserRouter>
