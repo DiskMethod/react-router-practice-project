@@ -1,5 +1,4 @@
-import { useRef, useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useRef, useState } from "react";
 import { usePrompt } from "../hooks/prompt.blocker";
 
 import Card from "../UI/Card";
@@ -12,8 +11,6 @@ const QuoteForm = (props) => {
   const authorInputRef = useRef();
   const textInputRef = useRef();
 
-  const navigate = useNavigate();
-
   function submitFormHandler(event) {
     event.preventDefault();
 
@@ -23,7 +20,6 @@ const QuoteForm = (props) => {
     // optional: Could validate here
 
     props.onAddQuote({ author: enteredAuthor, text: enteredText });
-    navigate("/quotes");
   }
 
   const formFocusedHandler = () => {

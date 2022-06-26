@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import React from "react";
 import { useSearchParams } from "react-router-dom";
 
 import QuoteItem from "./QuoteItem";
