@@ -30,6 +30,10 @@ const QuoteForm = (props) => {
     setFormFocused(true);
   };
 
+  const finishSubmissionHandler = () => {
+    setFormFocused(false);
+  };
+
   return (
     <Card>
       <form
@@ -52,7 +56,9 @@ const QuoteForm = (props) => {
           <textarea id="text" rows="5" ref={textInputRef}></textarea>
         </div>
         <div className={classes.actions}>
-          <button className="btn">Add Quote</button>
+          <button onClick={finishSubmissionHandler} className="btn">
+            Add Quote
+          </button>
         </div>
       </form>
     </Card>
