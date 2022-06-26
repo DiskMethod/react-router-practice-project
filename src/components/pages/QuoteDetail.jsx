@@ -19,7 +19,7 @@ const QuoteDetail = (props) => {
 
   useEffect(() => {
     sendRequest(params.id);
-  }, [sendRequest, params]);
+  }, [sendRequest, params.id]);
 
   if (status === "pending") {
     return (
