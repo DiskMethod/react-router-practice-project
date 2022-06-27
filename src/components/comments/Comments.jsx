@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 import { useParams } from "react-router-dom";
 
@@ -27,10 +27,13 @@ const Comments = () => {
     setIsAddingComment(true);
   };
 
-  const finishAddCommentHandler = (e) => {
-    setIsAddingComment(false);
-    sendRequestAllComments(params.id);
-  };
+  const finishAddCommentHandler = useCallback(
+    (e) => {
+      setIsAddingComment(false);
+      sendRequestAllComments(params.id);
+    },
+    [params.id, sendRequestAllComments]
+  );
 
   if (statusAllComments === "pending") {
     return (

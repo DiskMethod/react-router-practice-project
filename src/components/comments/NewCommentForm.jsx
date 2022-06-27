@@ -1,14 +1,26 @@
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 import classes from "./NewCommentForm.module.css";
 import useHttp from "../hooks/use-http";
 import { addComment } from "../lib/api";
+import LoadingSpinner from "../UI/LoadingSpinner";
 
 const NewCommentForm = (props) => {
   const commentTextRef = useRef();
-  const { sendRequest: sendRequestAddComment } = useHttp(addComment);
+  const {
+    sendRequest: sendRequestAddComment,
+    status,
+    error,
+  } = useHttp(addComment);
   const params = useParams();
+  const { onFinish } = props;
+
+  useEffect(() => {
+    if (status === "completed") {
+      onFinish();
+    }
+  }, [status, onFinish]);
 
   const submitFormHandler = (e) => {
     e.preventDefault();
@@ -22,8 +34,19 @@ const NewCommentForm = (props) => {
         text: commentTextRef.current.value,
       },
     });
-    props.onFinish();
   };
+
+  if (status === "pending") {
+    return (
+      <div className="centered">
+        <LoadingSpinner />
+      </div>
+    );
+  }
+
+  if (error) {
+    return <p className="centered focused">{error}</p>;
+  }
 
   return (
     <form className={classes.form} onSubmit={submitFormHandler}>
